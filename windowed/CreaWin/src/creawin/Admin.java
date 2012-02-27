@@ -31,21 +31,115 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        addOeuvreBtn = new javax.swing.JButton();
+        addOeuvreLbl = new java.awt.Label();
+        seeCatalogBtn = new javax.swing.JButton();
+        seeCatalogLbl = new java.awt.Label();
+        helpBtn = new javax.swing.JButton();
+        helpLbl = new java.awt.Label();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        addOeuvreBtn.setBackground(java.awt.SystemColor.window);
+        addOeuvreBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/creawin/picto_widget_add_netvibes.gif"))); // NOI18N
+        addOeuvreBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        addOeuvreBtn.setBorderPainted(false);
+        addOeuvreBtn.setContentAreaFilled(false);
+        addOeuvreBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOeuvreBtnActionPerformed(evt);
+            }
+        });
+
+        addOeuvreLbl.setText("Ajouter Oeuvre");
+
+        seeCatalogBtn.setBackground(java.awt.SystemColor.window);
+        seeCatalogBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/creawin/eye.png"))); // NOI18N
+        seeCatalogBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        seeCatalogBtn.setBorderPainted(false);
+        seeCatalogBtn.setContentAreaFilled(false);
+        seeCatalogBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeCatalogBtnActionPerformed(evt);
+            }
+        });
+
+        seeCatalogLbl.setText("Voir Catalogue");
+
+        helpBtn.setBackground(java.awt.SystemColor.window);
+        helpBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/creawin/th_help.gif"))); // NOI18N
+        helpBtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        helpBtn.setBorderPainted(false);
+        helpBtn.setContentAreaFilled(false);
+        helpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpBtnActionPerformed(evt);
+            }
+        });
+
+        helpLbl.setAlignment(java.awt.Label.CENTER);
+        helpLbl.setText("Aide");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(addOeuvreBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(addOeuvreLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(seeCatalogLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(seeCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(helpBtn)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(helpLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addOeuvreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(addOeuvreLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(helpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(helpLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(seeCatalogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(seeCatalogLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        helpLbl.getAccessibleContext().setAccessibleName("Aide");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addOeuvreBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOeuvreBtnActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_addOeuvreBtnActionPerformed
+
+    private void seeCatalogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeCatalogBtnActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_seeCatalogBtnActionPerformed
+
+    private void helpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpBtnActionPerformed
+        // TODO add your handling code here:
+}//GEN-LAST:event_helpBtnActionPerformed
 
     /**
     * @param args the command line arguments
@@ -59,6 +153,12 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addOeuvreBtn;
+    private java.awt.Label addOeuvreLbl;
+    private javax.swing.JButton helpBtn;
+    private java.awt.Label helpLbl;
+    private javax.swing.JButton seeCatalogBtn;
+    private java.awt.Label seeCatalogLbl;
     // End of variables declaration//GEN-END:variables
 
 }
