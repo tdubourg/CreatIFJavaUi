@@ -1,0 +1,60 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package modele;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ *
+ * @author Administrateur
+ */
+public class Galerie {
+
+    private int idGalerie;
+    private List<Oeuvre> listeOeuvre;
+    private int numClient;
+    private Date dateDebut;
+    private Date dateRetour;
+
+    public Galerie(int numClient, Date dateDebut, Date dateRetour)
+    {
+        this.numClient=numClient;
+        this.dateDebut=dateDebut;
+        this.dateRetour=dateRetour;
+        this.listeOeuvre = new ArrayList<Oeuvre> () {};
+    }
+
+    public void AjouteOeuvre(Oeuvre oeuvre)
+    {
+        if(listeOeuvre.size()<10)
+        {
+            this.listeOeuvre.add(oeuvre);
+        }
+        else
+        {
+            System.out.println("Vous ne pouvez pas selectionner plus de 10 oeuvres.");
+        }
+    }
+
+    public void RetireOeuvre(Oeuvre oeuvre)
+    {
+
+    }
+
+    public void AfficheGalerie()
+    {
+        System.out.println("Votre galerie");
+        for(Oeuvre oeuvre : this.listeOeuvre)
+        {
+            System.out.println("- "+oeuvre.artiste+", "+oeuvre.nom)
+
+        }
+        System.out.println("Les artistes de votre galerie");
+        //Liste des artistes avec leurs bios
+    }
+}
