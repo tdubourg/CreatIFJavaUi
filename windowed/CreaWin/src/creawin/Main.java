@@ -15,7 +15,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Admin a = new Admin();
+        Menu a = new Menu();
         a.show();
     }
 
