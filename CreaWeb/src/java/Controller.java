@@ -7,6 +7,7 @@ import actions.Action;
 import actions.Index;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,9 @@ public class Controller extends HttpServlet {
 		String actionStr = req.getParameter("action");
 		Action action = getAction(actionStr);
 		if (action != null) {
+			String view = action.execute(req, resp);
+			RequestDispatcher rd = req.getRequestDispatcher(view);
+				
 		}
 	}
 
