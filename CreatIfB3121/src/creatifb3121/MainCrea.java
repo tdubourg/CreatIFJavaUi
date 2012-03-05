@@ -20,7 +20,7 @@ import util.Saisie;
  *
  * @author Vincent BRISON & Mathilde CUCCHI
  */
-public class Main {
+public class MainCrea {
 
     /**
      * @param args the command line arguments

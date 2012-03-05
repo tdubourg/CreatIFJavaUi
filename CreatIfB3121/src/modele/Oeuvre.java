@@ -90,5 +90,15 @@ public class Oeuvre implements Serializable {
         this.tarifJournalier = tarifJournalier;
     }
     
+    //
+    //Ceci est un ajout de la part du B3133
+    //
+    
+    @Override
+    public String toString()
+    {
+	return this.getNom();
+    }
+    
     
 }

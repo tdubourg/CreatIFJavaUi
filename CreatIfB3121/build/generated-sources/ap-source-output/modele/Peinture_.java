@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.3.0.v20110604-r9504", date="2012-03-05T14:25:07")
+@Generated(value="EclipseLink-2.3.0.v20110604-r9504", date="2012-03-05T16:33:44")
 @StaticMetamodel(Peinture.class)
 public class Peinture_ extends Oeuvre_ {
 
