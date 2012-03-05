@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/ab.creatif/!svn/ver/46/src/dao
+END
+ArtisteDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ab.creatif/!svn/ver/46/src/dao/ArtisteDao.java
+END
+ClientDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ab.creatif/!svn/ver/46/src/dao/ClientDao.java
+END
+OeuvreDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ab.creatif/!svn/ver/46/src/dao/OeuvreDao.java
+END
+GalerieDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ab.creatif/!svn/ver/46/src/dao/GalerieDao.java
+END

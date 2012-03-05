@@ -1,0 +1,305 @@
+package vue;
+
+import java.util.Calendar;
+import java.util.List;
+import modele.*;
+import service.Service;
+import util.*;
+
+public class Main {
+
+    public static Service service = new Service();
+
+    //attributs de la classe main
+    public static List<Artiste> listeArtistes;
+
+
+    public static void creerArtiste3AvecOeuvres() throws Exception{
+
+        Artiste a = new Artiste("da Vinci", "Leonardo", "génie");
+        Peinture p = new Peinture("Mona Lisa", 137, 50, 31, "gouache");
+        Sculpture s = new Sculpture("L'élan", 78, 1337, 62, 48, "pierre");
+        Oeuvre o = new Oeuvre("Deltaplane", 19);
+        service.creerOeuvre(p);
+        service.creerOeuvre(s);
+        service.creerOeuvre(o);
+        service.creerArtiste(a);
+	service.associerOeuvreArtiste(a, p);
+	service.associerOeuvreArtiste(a, s);
+	service.associerOeuvreArtiste(a, o);
+    }
+
+    public static void creerClientAvecReservation() throws Exception{
+
+        Client c1 = new Client("Dupond", "Pierre", "rue de la République", "06-60-66-00-66");
+        Calendar d1 = Calendar.getInstance();
+        d1.set(2011, Calendar.DECEMBER, 1);
+        Calendar d2 = Calendar.getInstance();
+        d2.set(2013, Calendar.JUNE, 15);
+        
+        Oeuvre o = new Oeuvre("Foisin", 8);
+
+        Reservation r = new Reservation(d1, d2);
+        r.addOeuvre(o);
+        c1.addReservation(r);
+        service.creerOeuvre(o);
+        service.creerClient(c1);
+	Client client = service.identification(10);
+	//System.out.println(client.getNom());
+    }
+    public static void creerOeuvre(String nom) throws Exception
+    {
+<<<<<<< .mine
+        String ChoixOeuvre=Saisie.lireChaine("Ecrivez quel type d'oeuvre vous "
+                + "voulez creer une peinture ou une sculpture: ");
+
+       
+        switch (ChoixOeuvre) {
+            case "peinture":
+=======
+        System.out.println("Choisissez l'artiste dans la liste ci-dessous");
+        listeArtistes = service.rechercherTousArtistes();
+        afficherTousArtistes(listeArtistes);
+        int ChoixArtiste=Integer.parseInt(Saisie.lireChaine("Tapez l'ID de l'artiste"));
+        int ChoixOeuvre=Integer.parseInt(Saisie.lireChaine("Ecrivez 1 pour créer une peinture "
+                + "et 2 pour créer une sculpture"));
+        switch (ChoixOeuvre) 
+        {
+            case 1:
+>>>>>>> .r23
+                {
+                    int prix = Integer.parseInt(Saisie.lireChaine("Saisissez un "
+                            + "prix: "));
+                    int hauteur = Integer.parseInt(Saisie.lireChaine("Saisissez une "
+                            + "hauteur: "));
+                    int largeur = Integer.parseInt(Saisie.lireChaine("Saisissez une "
+                            + "largeur: "));
+                    String type = Saisie.lireChaine("De quel type de peinture il "
+                            + "s'agit?: ");
+                    Peinture p = new Peinture(nom, prix, hauteur, largeur, type);
+                    for(Artiste a:listeArtistes)
+                    {
+                        if(ChoixArtiste==a.getIdArtiste())
+                        {
+                            service.creerOeuvre(p);
+                            service.associerOeuvreArtiste(a,p);
+                        }
+
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    int prix = Integer.parseInt(Saisie.lireChaine("Saisissez un "
+                            + "prix: "));
+                    int hauteur = Integer.parseInt(Saisie.lireChaine("Saisissez une "
+                            + "hauteur: "));
+                    int largeur = Integer.parseInt(Saisie.lireChaine("Saisissez une "
+                            + "largeur: "));
+                    int profondeur = Integer.parseInt(Saisie.lireChaine("Saisissez une "
+                            + "profondeur: "));
+                    String type = Saisie.lireChaine("De quel type de sculpture il "
+                            + "s'agit?: ");
+                    Sculpture s = new Sculpture(nom, prix, hauteur, largeur, profondeur
+                            ,type);
+                    for(Artiste a:listeArtistes)
+                    {
+                        if(ChoixArtiste==a.getIdArtiste())
+                        {
+                            service.creerOeuvre(s);
+                            service.associerOeuvreArtiste(a,s);
+                        }
+
+                    }
+                    
+                    break;
+                }
+        }
+    }
+    
+    
+    public static void demandeListeOeuvres()
+    {
+        List<Oeuvre> listeOeuvres = service.rechercherToutesOeuvres();
+        for(Oeuvre oeuvre:listeOeuvres)
+        {
+            System.out.print(oeuvre.getIdOeuvre());
+            System.out.print(" ");
+            System.out.println(oeuvre.getTitre());
+        }
+    }
+    
+    public static void afficherReservation(int idOeuvre)
+    {
+        List<Reservation> listeRechercheReservation = service.rechercherReservationOeuvre(idOeuvre);
+        for(Reservation reservation:listeRechercheReservation)
+        {
+            System.out.print(reservation.getClient().getNom());
+            System.out.print(" ");
+            System.out.print(reservation.getDateDebut().getTime());
+            System.out.print(" ");
+            System.out.println(reservation.getDateFin().getTime());
+            
+        }
+    }
+            
+    public static void creationArtistes() throws Exception{
+       service.creerArtiste(new Artiste("da Vinci", "Leonardo", "génie"));
+       service.creerArtiste(new Artiste("Picasso", "Pablo", "peintre"));
+       service.creerArtiste(new Artiste("Shakira", "", "chanteuse"));
+    }
+
+    public static void afficherTousArtistes(List<Artiste> listeArtistes)
+    {
+        
+        
+
+        for(Artiste artiste:listeArtistes)
+        {
+            System.out.print(artiste.getIdArtiste());
+            System.out.println(" "+artiste.getNom()+" "+artiste.getPrenom());
+        }
+        
+    }
+
+    public static void testDisponibilite()
+    {
+        Calendar d1 = Calendar.getInstance();
+        d1.set(2011, Calendar.SEPTEMBER, 1);
+        Calendar d2 = Calendar.getInstance();
+        d2.set(2013, Calendar.NOVEMBER, 15);
+        
+        Reservation r = new Reservation(d1, d2);
+        
+        List<Oeuvre> oeuvresDispo = service.rechercherOeuvresDisponibles(r);
+        
+        for(Oeuvre o:oeuvresDispo)
+        {
+            System.out.print(o.getIdOeuvre());
+            System.out.println(" "+o.getTitre()+" ");
+        }
+    }
+
+    public static void menuClient()
+    {
+        boolean identifie = false;
+        Client leClient = null;
+        boolean menuClient = true;
+
+
+        while(menuClient)
+        {
+            //if not identifie
+                //switch
+                //1 identification
+                //0 quitter
+            //else
+                //switch
+                //1 voir galleries
+                //2 nouvelle reservation
+                //0 quitter
+
+        }
+
+
+    }
+
+    public static void nouvelleReservation()
+    {
+        Reservation res  = null;
+        boolean ajouterOeuvres = true;
+        List<Oeuvre> oeuvresDispo = null;
+        //selection des dates
+        //res = new reservation(d1,d2)
+
+        while(ajouterOeuvres)
+        {
+
+            //oeuvresDispo.service.rechercherOeuvresDisponibles(res)
+            //affichertouteslesoeuvres
+
+            //switch
+            //1 ajouter oeuvre par id
+
+            //2 valider reservation
+
+            //0 annuler reservation
+        }
+
+
+
+    }
+
+
+
+    public static void menuAdmin()
+    {
+        boolean menuadmin = true;
+
+        while(menuadmin)
+        {
+            //switch
+            //1 creerOeuvre()
+            //2 AfficherTouteslesOeuvres
+            //3 Afficher Calendrier d'une oeuvre
+            //0 quitter
+        }
+
+    }
+
+    public static void menuGeneral()
+    {
+        boolean continuer=true;
+
+        while(continuer)
+        {
+            //switch
+
+            //1 MenuClient
+
+            //2 MenuAdmin
+
+
+           //0 quitter : continuer=false;
+            
+        
+        }
+
+    }
+
+    public static void main(String[] args) {
+        try
+	{
+            creationArtistes();
+            creerArtiste3AvecOeuvres();
+            creerClientAvecReservation();
+            for(;;){
+            int Service = Integer.parseInt(Saisie.lireChaine("Pour "
+                    + "ajouter une oeuvre tapez 1\n" + "Pour afficher le "
+                    + "calendrier d'une oeuvre tapez 2\n"));
+            if(Service==1)
+            {
+                creerOeuvre(Saisie.lireChaine("Saisissez le nom de l'oeuvre: "));
+            }
+            if(Service==2)
+            {
+                demandeListeOeuvres();
+                afficherReservation(Integer.parseInt(Saisie.lireChaine("Tapez "
+                        + "l'ID de l'oeuvre\n")));
+            }
+            //afficherTousArtistes();
+            //afficherReservation(9);
+            }
+             
+            
+            //testDisponibilite();
+            
+        }
+	catch (Exception ex)
+	{
+            ex.printStackTrace();
+        }
+    }
+
+
+}
