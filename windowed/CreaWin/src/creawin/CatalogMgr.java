@@ -12,6 +12,13 @@
 package creawin;
 
 import java.io.Writer;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import modele.Oeuvre;
+import modele.Peinture;
+import modele.Sculpture;
+import service.Service;
 
 /**
  *
@@ -21,7 +28,18 @@ public class CatalogMgr extends javax.swing.JFrame {
 
     /** Creates new form CatalogMgr */
     public CatalogMgr() {
+	
         initComponents();
+	
+	DefaultListModel listModel = new DefaultListModel();
+	
+	List<Oeuvre> catalog = Service.rechercherToutesLesOeuvres();
+	for (Oeuvre o:catalog)
+	{	    
+	    listModel.addElement(o);
+	}
+	oeuvresList.setModel(listModel);
+	
     }
 
     /** This method is called from within the constructor to
@@ -35,32 +53,36 @@ public class CatalogMgr extends javax.swing.JFrame {
 
         detailsPane = new javax.swing.JPanel();
         textArea1 = new java.awt.TextArea();
+        ReservBtn = new javax.swing.JButton();
         oeuvresSP = new javax.swing.JScrollPane();
         oeuvresList = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
+        ReservBtn.setText("Voir les réservations");
+
         javax.swing.GroupLayout detailsPaneLayout = new javax.swing.GroupLayout(detailsPane);
         detailsPane.setLayout(detailsPaneLayout);
         detailsPaneLayout.setHorizontalGroup(
             detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(detailsPaneLayout.createSequentialGroup()
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(detailsPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ReservBtn)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         detailsPaneLayout.setVerticalGroup(
             detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(detailsPaneLayout.createSequentialGroup()
                 .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ReservBtn)
+                .addGap(55, 55, 55))
         );
 
-        oeuvresList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
         oeuvresList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 oeuvresListValueChanged(evt);
@@ -95,7 +117,23 @@ public class CatalogMgr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oeuvresListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_oeuvresListValueChanged
-        this.textArea1.setText(this.oeuvresList.getSelectedValue().toString());
+       /* String text = "Oeuvre : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getNom() + "\nArtiste : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getArtiste(); 
+	text += "\nDescription : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getDescription() + "\n";
+	
+	if (this.oeuvresList.getSelectedValue().getClass() == Peinture.class)
+	{
+	    text += "Type : Peinture\nHauteur :" + ((Peinture) this.oeuvresList.getSelectedValue()).getHauteur(); 
+	    text += "\nLargeur : " +((Peinture) this.oeuvresList.getSelectedValue()).getLargeur();
+	}
+	else
+	{
+	    text += "Type : Sculpture\nHauteur :" + ((Sculpture) this.oeuvresList.getSelectedValue()).getHauteur(); 
+	    text += "\nLargeur : " +((Sculpture) this.oeuvresList.getSelectedValue()).getLargeur();
+	    text += "\nEpaisseur : " +((Sculpture) this.oeuvresList.getSelectedValue()).getEpaisseur();
+	}
+	text += "\nTarif Journalier : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getTarifJournalier()+ " €";
+	
+	this.textArea1.setText(text);*/
     }//GEN-LAST:event_oeuvresListValueChanged
 
     /**
@@ -110,6 +148,7 @@ public class CatalogMgr extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ReservBtn;
     private javax.swing.JPanel detailsPane;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
