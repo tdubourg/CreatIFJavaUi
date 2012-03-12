@@ -1,3 +1,5 @@
+package controllers;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -22,7 +24,7 @@ import service.Service;
  * @author
  * troll
  */
-@WebServlet(name = "Controller", urlPatterns = {"/WEB-INF/"})
+@WebServlet(name = "Controller", urlPatterns = {"/controller"})
 public class Controller extends HttpServlet { 
 	
 	@Override
@@ -32,7 +34,9 @@ public class Controller extends HttpServlet {
 		Action action = getAction(actionStr);
 		if (action != null) {
 			String view = action.execute(req, resp);
+			System.out.println("Ici");
 			RequestDispatcher rd = req.getRequestDispatcher(view);
+			System.out.println("Là");
 			try {
 				rd.forward(req, resp);
 			} catch (ServletException ex) {
@@ -43,22 +47,14 @@ public class Controller extends HttpServlet {
 		}
 	}
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-		throws IOException, ServletException {
-
-		PrintWriter out = resp.getWriter();
-		
-		out.println("Hi folks!");
-	}
 
 	private Action getAction(String actionStr) {
 		Action action = null;
-		if ("index".equals(actionStr)) {
+		if("galleries".equals(actionStr)) {
+			action = new controllers.Galleries();
+		} else {
 			System.out.println("Request received for index page");
 			action = new Index();
-		} else if("galleries".equals(actionStr)) {
-			action = new controllers.Galleries();
 		}
 		return action;
 	}

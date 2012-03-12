@@ -4,8 +4,14 @@
  */
 package actions;
 
+import controllers.Controller;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modele.Client;
+import service.Service;
+import util.JpaUtil;
 
 /**
  *
@@ -16,9 +22,25 @@ public class Index extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
-		req.setAttribute("login", "Hi World!");
+		//req.setAttribute("login", "Hi World!");
+		System.out.println("AVANT");
 		
-		return "IndexView";
+		System.out.println("Passé par Index()");
+		
+		int numClient = 0;
+		try {
+			numClient = Integer.parseInt((String)req.getParameter("numClient"));
+		} catch(Exception e) {
+			numClient = 0;
+			Logger.getLogger(Controller.class.getName()).log(Level.INFO, "numClient was not a valid integer : " + req.getAttribute("numClient"));
+		}
+		Client c = new Client();
+		c.setNumClient(numClient);
+		boolean loginSucessful = Service.clientExistant(c);
+		
+		System.out.println((loginSucessful) ? "Login sucessful !" : "Login unsuccessful !");
+		
+		return (!loginSucessful) ? "login.jsp" : "galleries.jsp";
 	}
 	
 }
