@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/creatifb3121/MainCrea.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/util/JpaUtil.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/service/Service.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Client.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/nbproject/build-impl.xml</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Oeuvre.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Peinture.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Artiste.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Sculpture.java</file>
+        <file>file:/home/fhyren/CreatIFJavaUi/CreatIfB3121/src/modele/Galerie.java</file>
+    </open-files>
 </project-private>
