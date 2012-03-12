@@ -43,4 +43,6 @@ public class Peinture extends Oeuvre {
         this.largeur = largeur;
     }
     
+    
+    
 }

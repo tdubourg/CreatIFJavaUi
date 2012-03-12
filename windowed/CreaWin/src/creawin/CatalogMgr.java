@@ -117,7 +117,7 @@ public class CatalogMgr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oeuvresListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_oeuvresListValueChanged
-        String text = "Oeuvre : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getNom() + "\nArtiste : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getArtiste(); 
+       /* String text = "Oeuvre : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getNom() + "\nArtiste : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getArtiste(); 
 	text += "\nDescription : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getDescription() + "\n";
 	
 	if (this.oeuvresList.getSelectedValue().getClass() == Peinture.class)
@@ -133,7 +133,7 @@ public class CatalogMgr extends javax.swing.JFrame {
 	}
 	text += "\nTarif Journalier : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getTarifJournalier()+ " €";
 	
-	this.textArea1.setText(text);
+	this.textArea1.setText(text);*/
     }//GEN-LAST:event_oeuvresListValueChanged
 
     /**

@@ -124,14 +124,6 @@ public class Artiste implements Serializable {
     }
 
     
-    //
-    //Ceci est un ajout de la part du B3133
-    //
     
-    @Override
-    public String toString()
-    {
-	return (this.getPrenom() + " " + this.getNom());
-    }
     
 }

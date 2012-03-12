@@ -1,0 +1,13 @@
+<web-app>
+
+	<servlet>
+		<servlet-class>controllers.Controller</servlet-class>
+		<servlet-name>Controller</servlet-name>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>Controller</servlet-name>
+		<url-pattern>/META-INF/</url-pattern>
+	</servlet-mapping>
+
+</web-app>

@@ -16,7 +16,9 @@ public class Index extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		req.setAttribute("login", "Hi World!");
+		
+		return "IndexView";
 	}
 	
 }
