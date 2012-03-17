@@ -1,10 +1,22 @@
 package controllers;
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To
+ * change
+ * this
+ * template,
+ * choose
+ * Tools
+ * |
+ * Templates
+ * and
+ * open
+ * the
+ * template
+ * in
+ * the
+ * editor.
  */
-
 import actions.Action;
 import actions.Index;
 import java.io.IOException;
@@ -25,8 +37,8 @@ import service.Service;
  * troll
  */
 @WebServlet(name = "Controller", urlPatterns = {"/controller"})
-public class Controller extends HttpServlet { 
-	
+public class Controller extends HttpServlet {
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) {
 		System.out.println("On est passé par ici.");
@@ -46,12 +58,13 @@ public class Controller extends HttpServlet {
 			}
 		}
 	}
-	
 
 	private Action getAction(String actionStr) {
 		Action action = null;
-		if("galleries".equals(actionStr)) {
+		if ("galleries".equals(actionStr)) {
 			action = new controllers.Galleries();
+		} else if ("submit_gallery".equals(actionStr)) {
+			action = new controllers.Checkout();
 		} else {
 			System.out.println("Request received for index page");
 			action = new Index();

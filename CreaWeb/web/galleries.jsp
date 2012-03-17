@@ -15,24 +15,56 @@
 		<title>JSP Page</title>
 	</head>
 	<body>
+		<form action="./controller?action=submit_gallery" method="post" />
 		<table>
-		<% List<Oeuvre> list = Service.rechercherToutesLesPeintures();
-			list.addAll(Service.rechercherToutesLesSculptures());
-			
-			for(Oeuvre o: list) {
-				%>
-	<tr>
-		<td>
-		<%
-				out.println(o);
-		%>
-		</td>
-	</tr>
-	<%
-			}
-			
-	
-	%>
-	</table>
-	</body>
+			<thead>
+				<tr>
+					<th>Nom oeuvre</th>
+					<th>Nom artiste</th>
+					<th>Description</th>
+					<th>Prix</th>
+					<th>Réserver</th>
+				</tr>
+			</thead>
+			<% List<Oeuvre> list = Service.rechercherToutesLesPeintures();
+				list.addAll(Service.rechercherToutesLesSculptures());
+
+				for (Oeuvre o : list) {
+			%>
+			<tr>
+				<td>
+					<%
+						out.println(o.getNom());
+					%>
+				</td>
+
+				<td>
+					<%
+						out.println(o.getArtiste().getNom() + " " + o.getArtiste().getPrenom());
+					%>
+				</td>
+				<td>
+					<%
+						out.println(o.getDescription());
+					%>
+				</td>
+				<td>
+					<%
+						out.println(o.getTarifJournalier());
+					%> &euro;
+				</td>
+				<td>
+					<input type="checkbox" name="ids[]" value="<%
+						out.print(o.getIdOeuvre());
+					%>" />
+				</td>
+			</tr>
+			<%
+				}
+
+
+			%>
+		</table>
+	</form>
+</body>
 </html>
