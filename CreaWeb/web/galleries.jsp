@@ -13,6 +13,18 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>JSP Page</title>
+		<script type="text/javascript" >
+			function toggleRowSelection (tr) {
+				tr.classList.toggle("selected");
+				return ;
+				
+			}
+		</script>
+		<style type="text/css" >
+			.selected {
+				background-color: lightblue;
+			}
+		</style>
 	</head>
 	<body>
 		<form action="./controller?action=submit_gallery" method="post" />
@@ -31,7 +43,7 @@
 
 				for (Oeuvre o : list) {
 			%>
-			<tr>
+			<tr class="pouet">
 				<td>
 					<%
 						out.println(o.getNom());
@@ -54,7 +66,7 @@
 					%> &euro;
 				</td>
 				<td>
-					<input type="checkbox" name="ids[]" value="<%
+					<input onclick="toggleRowSelection(this.parentNode.parentNode);" type="checkbox" name="ids[]" value="<%
 						out.print(o.getIdOeuvre());
 					%>" />
 				</td>
@@ -65,6 +77,7 @@
 
 			%>
 		</table>
+		<input type="submit" value="Envoyer" />
 	</form>
 </body>
 </html>

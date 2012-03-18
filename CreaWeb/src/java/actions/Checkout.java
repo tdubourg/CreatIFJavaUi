@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package actions;
 
 import actions.Action;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +17,6 @@ public class Checkout extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return "checkout.jsp";
 	}
 }

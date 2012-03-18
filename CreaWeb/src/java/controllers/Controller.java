@@ -61,10 +61,8 @@ public class Controller extends HttpServlet {
 
 	private Action getAction(String actionStr) {
 		Action action = null;
-		if ("galleries".equals(actionStr)) {
-			action = new controllers.Galleries();
-		} else if ("submit_gallery".equals(actionStr)) {
-			action = new controllers.Checkout();
+		if ("submit_gallery".equals(actionStr)) {
+			action = new actions.Checkout();
 		} else {
 			System.out.println("Request received for index page");
 			action = new Index();
