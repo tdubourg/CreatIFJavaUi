@@ -19,6 +19,7 @@ package controllers;
  */
 import actions.Action;
 import actions.Index;
+import actions.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -63,6 +64,12 @@ public class Controller extends HttpServlet {
 		Action action = null;
 		if ("submit_gallery".equals(actionStr)) {
 			action = new actions.Checkout();
+		} else if("help".equals(actionStr)) {
+			action = new actions.Help();
+		}
+		
+		else if("login".equals(actionStr)) {
+			action = new actions.Login();
 		} else {
 			System.out.println("Request received for index page");
 			action = new Index();

@@ -4,7 +4,6 @@
  */
 package actions;
 
-import actions.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,10 +12,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author
  * troll
  */
-public class Index extends Action {
+public class Help  extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
-		return "index.jsp";
+		return "help.jsp";
 	}
+	
 }
