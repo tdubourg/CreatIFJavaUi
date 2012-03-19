@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author
  * troll
  */
-public class Help  extends Action {
+public class Help extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {

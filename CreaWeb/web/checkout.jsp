@@ -10,10 +10,13 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>JSP Page</title>
+		<title>Checking out !</title>
 	</head>
 	<body>
 		Vous avez demandé la réservation des oeuvres :
+		<%
+			if (request.getParameterValues("ids[]") != null) {
+		%>
 		<ul>
 			<% for (String s : request.getParameterValues("ids[]")) {
 			%>
@@ -24,5 +27,10 @@
 				}
 			%>
 		</ul>
+		<%
+			} else {
+				out.println("Panier vide.");
+			}
+		%>
 	</body>
 </html>
