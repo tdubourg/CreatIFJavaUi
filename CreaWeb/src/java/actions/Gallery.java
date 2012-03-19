@@ -5,6 +5,7 @@
 package actions;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -29,15 +30,16 @@ public class Gallery extends Action {
 			List<Oeuvre> oeuvreList;
 			oeuvreList = Service.rechercherToutesLesPeintures();
 			oeuvreList.addAll(Service.rechercherToutesLesSculptures());
+			List<Oeuvre> oeuvreList2 = new ArrayList<Oeuvre>();
 			System.out.println("List initialized.");
 			if (endDate != null && startDate != null) {
 				System.out.println("Dates are not null");
 				try {
-					df = new SimpleDateFormat("dd-MM-yy");
+					df = new SimpleDateFormat("dd/MM/yyyy");
 					df.setLenient(false);
 					startDated = df.parse(startDate);
 					endDated = df.parse(endDate);
-				} catch(Exception e) {
+				} catch (Exception e) {
 					System.out.println("Format invalide.");
 					startDate = null;
 					endDate = null;
@@ -48,13 +50,31 @@ public class Gallery extends Action {
 				System.out.println("Aucune date demandée.");
 			}
 
-			for (Oeuvre o : oeuvreList) {
-				if (endDate != null && startDate != null && !Service.oeuvreDisponible(o, startDated, endDated)) {
-					oeuvreList.remove(o);
+			try {
+				for (Oeuvre o : oeuvreList) {
+					try {
+						if (endDate != null && startDate != null && Service.oeuvreDisponible(o, startDated, endDated)) {
+							oeuvreList2.add(o);
+						} else {
+							try {
+								System.out.println("L'oeuvre " + o.getNom() + " n'est pas disponible pour les dates " + startDated + "-" + endDated);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			System.out.println(oeuvreList);
-			req.getSession(true).setAttribute("oeuvreList", oeuvreList);
+			try {
+				req.getSession(true).setAttribute("oeuvreList", oeuvreList2);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} catch (Exception e) {
 			System.out.println("Erreur inconnue.");
 		}
