@@ -123,7 +123,11 @@ public class Artiste implements Serializable {
         this.listeOeuvre = listeOeuvre;
     }
 
-    
+    @Override
+    public String toString()
+    {
+	return nom;
+    }
     
     
 }

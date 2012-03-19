@@ -44,5 +44,4 @@ public class Peinture extends Oeuvre {
     }
     
     
-    
 }

@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) throws Exception {
 	
-	MainCrea.creationDb();
+	//MainCrea.creationDb();
 	
         Menu a = new Menu();
         a.show();

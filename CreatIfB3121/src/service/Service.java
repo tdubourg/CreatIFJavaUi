@@ -101,7 +101,7 @@ public class Service {
                     calendrier += ligneDate + "\n";
                 }
             } else {
-                calendrier += "Cette oeuvre n'est pas loue";
+                calendrier += "Cette oeuvre n'est pas louée !";
             }
         }
         return calendrier;

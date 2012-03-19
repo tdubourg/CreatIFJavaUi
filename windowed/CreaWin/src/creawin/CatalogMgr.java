@@ -15,6 +15,7 @@ import java.io.Writer;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import modele.Oeuvre;
 import modele.Peinture;
 import modele.Sculpture;
@@ -60,7 +61,14 @@ public class CatalogMgr extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
+        setTitle("Créat'If - Visualisation du catalogue");
+
         ReservBtn.setText("Voir les réservations");
+        ReservBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReservBtnMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout detailsPaneLayout = new javax.swing.GroupLayout(detailsPane);
         detailsPane.setLayout(detailsPaneLayout);
@@ -91,9 +99,38 @@ public class CatalogMgr extends javax.swing.JFrame {
         oeuvresSP.setViewportView(oeuvresList);
 
         jMenu1.setText("Aide");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu1MousePressed(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setMnemonic('Q');
         jMenu2.setText("Quitter");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenu2MousePressed(evt);
+            }
+        });
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+        jMenu2.addMenuKeyListener(new javax.swing.event.MenuKeyListener() {
+            public void menuKeyPressed(javax.swing.event.MenuKeyEvent evt) {
+                jMenu2MenuKeyPressed(evt);
+            }
+            public void menuKeyReleased(javax.swing.event.MenuKeyEvent evt) {
+            }
+            public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
+                jMenu2MenuKeyTyped(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -117,7 +154,7 @@ public class CatalogMgr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oeuvresListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_oeuvresListValueChanged
-       /* String text = "Oeuvre : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getNom() + "\nArtiste : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getArtiste(); 
+        String text = "Oeuvre : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getNom() + "\nArtiste : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getArtiste(); 
 	text += "\nDescription : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getDescription() + "\n";
 	
 	if (this.oeuvresList.getSelectedValue().getClass() == Peinture.class)
@@ -133,8 +170,41 @@ public class CatalogMgr extends javax.swing.JFrame {
 	}
 	text += "\nTarif Journalier : " + ((Oeuvre) this.oeuvresList.getSelectedValue()).getTarifJournalier()+ " €";
 	
-	this.textArea1.setText(text);*/
+	this.textArea1.setText(text);
     }//GEN-LAST:event_oeuvresListValueChanged
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+	// TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+	// TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu2MenuKeyPressed(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jMenu2MenuKeyPressed
+	// TODO add your handling code here:
+	hide();
+    }//GEN-LAST:event_jMenu2MenuKeyPressed
+
+    private void jMenu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MousePressed
+	// TODO add your handling code here:
+	hide();
+    }//GEN-LAST:event_jMenu2MousePressed
+
+    private void jMenu2MenuKeyTyped(javax.swing.event.MenuKeyEvent evt) {//GEN-FIRST:event_jMenu2MenuKeyTyped
+	// TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2MenuKeyTyped
+
+    private void ReservBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservBtnMouseClicked
+	// TODO add your handling code here
+	String s = Service.calendrierLocation((Oeuvre)this.oeuvresList.getSelectedValue());
+	Reservation r = new Reservation(s);
+	r.show();
+    }//GEN-LAST:event_ReservBtnMouseClicked
+
+    private void jMenu1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MousePressed
+	JOptionPane.showMessageDialog(this, "Le bouton \"Voir les réservations\" vous permettra de voir le calendier de location de l'oeuvre");
+    }//GEN-LAST:event_jMenu1MousePressed
 
     /**
     * @param args the command line arguments

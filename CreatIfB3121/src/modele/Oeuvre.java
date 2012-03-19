@@ -90,5 +90,11 @@ public class Oeuvre implements Serializable {
         this.tarifJournalier = tarifJournalier;
     }
     
+    @Override
+    public String toString()
+    {
+	return nom;
+    }
+    
     
 }
