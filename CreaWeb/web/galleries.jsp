@@ -27,12 +27,22 @@
 				if(!box.checked) {//* On est en train de décocher
 					var todelete = $("#right_col .col_content #panier_"+id).get(0);
 					todelete.parentNode.removeChild(todelete);
+										//* MàJ du prix :
+					prix = Math.abs($(tr).find(".oeuvre_prix").eq(0).html().replace("€", ""));
+					currTotal = Math.abs($("#total_price").html().replace("€", ""));
+					currTotal -= prix;
+					$("#total_price").html(currTotal + " €");
+
 				} else {//* On est en train de cocher
 					var p = document.createElement("p");
 					p.setAttribute("ID", "panier_"+id);
 					p.innerHTML = $(tr).find(".oeuvre_name").eq(0).html();
 					$("#right_col .col_content").get(0).appendChild(p);
-					
+					//* MàJ du prix :
+					prix = Math.abs($(tr).find(".oeuvre_prix").eq(0).html().replace("€", ""));
+					currTotal = Math.abs($("#total_price").html().replace("€", ""));
+					currTotal += prix;
+					$("#total_price").html(currTotal + " €");
 				}
 				return ;
 				
@@ -64,7 +74,6 @@
 			}
 
 			.col_title {
-
 				height: 2em;
 				font-weight: bold;
 				text-align:center;
@@ -74,11 +83,16 @@
 			.col_content, .col_title, #account, #dates {
 				width:100%;
 				border: 2px solid black;
+				margin-bottom: 5px;
 			}
 
 			.col_content {
-				height: 80%;
+				height: 91%;
 				overflow-y: auto;
+			}
+			
+			#right_col .col_content {
+				height: 83%;
 			}
 			#center_col {
 				margin-left: 20%;
@@ -90,11 +104,12 @@
 			body {
 				height: 99%;
 				position:absolute;
-				width: 100%;
+				width: 98%;
 			}
 			#account, #dates {
 				height: 49%;
 				text-align:center;
+				margin-bottom: 5px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -124,6 +139,9 @@
 			<div class="col_content" >
 				<input type="button" onclick="$('#selection_form').get(0).submit();" value="Envoyer" />
 			</div>
+			<div class="col_title" >
+				Prix :<span id="total_price" style="display:inline-block; width: 70%; text-align: right;" >0 &euro;</span>
+			</div>
 		</div>
 		<div id="left_col" >
 			<div id="account" >
@@ -141,6 +159,9 @@
 					$("#datepicker2").datepicker();
 					$("#datepicker2").datepicker( "option", "dateFormat", "dd/mm/yy");
 					$("#submit_dates").bind("click", function () {
+						$("#right_col .col_content p").each(function (i, e) {
+							e.parentNode.removeChild(e);
+						});
 						$("#center_col .col_content").load("controller?action=load_catalog&start_date="+$("#datepicker").get(0).value+"&end_date="+$("#datepicker2").get(0).value);
 					});
 				</script>

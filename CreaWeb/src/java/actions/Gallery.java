@@ -22,6 +22,11 @@ public class Gallery extends Action {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp) {
+		
+		/* 
+		 * Check dates début / fins inversées
+		 */
+		
 		SimpleDateFormat df;
 		String startDate = req.getParameter("start_date");
 		String endDate = req.getParameter("end_date");

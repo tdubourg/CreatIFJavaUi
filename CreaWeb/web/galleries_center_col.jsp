@@ -35,7 +35,7 @@
 				out.println(o.getDescription());
 			%>
 		</td>
-		<td>
+		<td class="oeuvre_prix">
 			<%
 				out.println(o.getTarifJournalier());
 			%> &euro;
