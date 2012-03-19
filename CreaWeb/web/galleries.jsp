@@ -158,8 +158,9 @@
 			</div>
 		</div>
 		<div id="left_col" >
-			<div id="account" >
-
+			<div id="account" style="text-align:center;" >
+				<br />
+				<a href="controller?action=help" >Aide</a>
 			</div>
 			<div id="dates" >
 				<h4 style="text-align:center" >Nouvelle galerie</h4>
