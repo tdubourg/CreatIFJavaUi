@@ -49,6 +49,16 @@
 			}
 		</script>
 		<style type="text/css" >
+			
+			/*#global_submit_button {
+				position: absolute;
+				bottom: 0px;
+				left: 33%;
+			}*/
+			
+			#global_submit_button {
+				text-align:center;
+			}
 
 			div, *, body, html, p {
 				padding:0;
@@ -92,7 +102,8 @@
 			}
 			
 			#right_col .col_content {
-				height: 83%;
+				height: 78%;
+				position:relative;
 			}
 			#center_col {
 				margin-left: 20%;
@@ -137,10 +148,13 @@
 				Votre galerie
 			</div>
 			<div class="col_content" >
-				<input type="button" onclick="$('#selection_form').get(0).submit();" value="Envoyer" />
+				
 			</div>
 			<div class="col_title" >
 				Prix :<span id="total_price" style="display:inline-block; width: 70%; text-align: right;" >0 &euro;</span>
+			</div>
+			<div class="col_title" >
+				<input id="global_submit_button" type="button" onclick="$('#selection_form').get(0).submit();" value="Envoyer" />
 			</div>
 		</div>
 		<div id="left_col" >
