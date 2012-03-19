@@ -24,60 +24,67 @@
 			.selected {
 				background-color: lightblue;
 			}
+			#left_col {
+				float:left;
+			}
+
+			#right_col {
+				float:right;
+			}
+
+			#left_col, #right_col {
+				width: 18%;
+			}
+
+			#center_col {
+				border-left: 2px solid black;
+				border-right: 2px solid black;
+				margin-left: 20%;
+				width : 58%;
+				padding-left: 1%;
+				padding-right: 1%;
+				height:100%;
+				overflow: scroll;
+			}
+			body {
+				height: 100%;
+			}
 		</style>
+		<script type="text/javascript">
+			<%@ include file="js/jquery.min.js" %>
+		</script>
+		<script type="text/javascript">
+			<%@ include file="js/jquery-ui-datepicker/js/jquery-ui-1.8.15.custom.min.js" %>
+		</script>
+		<script type="text/javascript">
+			<%@ include file="js/jquery-ui-datepicker/js/jquery.ui.datepicker.min.js" %>
+		</script>
+
+		<script type="text/javascript">
+			<%@ include file="js/jquery-ui-datepicker/js/jquery.ui.datepicker-fr.js" %>
+		</script>
+
+		<style type="text/css">
+			<%@ include file="js/jquery-ui-datepicker/css/ui-lightness/jquery-ui-1.8.15.custom.css" %>
+		</style>
+
 	</head>
 	<body>
-		<form action="./controller?action=submit_gallery" method="post" />
-		<table>
-			<thead>
-				<tr>
-					<th>Nom oeuvre</th>
-					<th>Nom artiste</th>
-					<th>Description</th>
-					<th>Prix</th>
-					<th>Réserver</th>
-				</tr>
-			</thead>
-			<% List<Oeuvre> list = Service.rechercherToutesLesPeintures();
-				list.addAll(Service.rechercherToutesLesSculptures());
+		<div id="right_col" >aaa</div>
+		<div id="left_col" >
+			<div id="account" >
 
-				for (Oeuvre o : list) {
-			%>
-			<tr class="pouet">
-				<td>
-					<%
-						out.println(o.getNom());
-					%>
-				</td>
+			</div>
+			<div id="dates" >
+				<input type="text" id="datepicker" name="date" onclick="this.value='';" value="jj/mm/aaaa"/></label><br />
+				<script type="text/javascript" >
+					$("#datepicker").datepicker();
+					$("#datepicker").datepicker( "option", "dateFormat", "dd/mm/yy");
+				</script>
+			</div>
+		</div>
+		<div id="center_col" >
 
-				<td>
-					<%
-						out.println(o.getArtiste().getNom() + " " + o.getArtiste().getPrenom());
-					%>
-				</td>
-				<td>
-					<%
-						out.println(o.getDescription());
-					%>
-				</td>
-				<td>
-					<%
-						out.println(o.getTarifJournalier());
-					%> &euro;
-				</td>
-				<td>
-					<input onclick="toggleRowSelection(this.parentNode.parentNode);" type="checkbox" name="ids[]" value="<%
-						out.print(o.getIdOeuvre());
-					%>" />
-				</td>
-			</tr>
-			<%
-				}
-
-
-			%>
-		</table>
-		<input type="submit" value="Envoyer" />
-	</form>
-</body>
+		</div>
+	</body>
 </html>
