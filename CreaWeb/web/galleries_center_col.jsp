@@ -1,7 +1,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="service.Service" %>
 <%@ page import="modele.*" %>
-<form action="./controller?action=submit_gallery" method="post" id="selection_form" name="selection_form" />
+<form action="./controller?action=submit_gallery" method="post" id="selection_form" name="selection_form" >
 <table>
 	<thead>
 		<tr>

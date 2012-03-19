@@ -47,7 +47,11 @@ public class Gallery extends Action {
 
 				System.out.println("Dates demandées :\nStart=" + startDated + "\nEnd=" + endDated);
 			} else {
+				
 				System.out.println("Aucune date demandée.");
+			}
+			if(startDate == null || endDate == null) {
+				oeuvreList2.addAll(oeuvreList);
 			}
 
 			try {
